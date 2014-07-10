@@ -25,7 +25,7 @@ Ext.define('Desktop.App', {
 //        'Desktop.Blockalanche',
         'Desktop.Settings',
 
-        'Desktop.VersionLog'
+        'Desktop.VersionLog',
     ],
 
     init: function() {
@@ -47,7 +47,8 @@ Ext.define('Desktop.App', {
             new Desktop.Notepad(),
             new Desktop.BogusMenuModule(),
             new Desktop.BogusModule(),
-            new Desktop.VersionLog()
+            new Desktop.VersionLog(),
+            new Desktop.UserManage(),
         ];
     },
 
@@ -68,7 +69,8 @@ Ext.define('Desktop.App', {
                     { name: 'Accordion Window', iconCls: 'accordion-shortcut', module: 'acc-win' },
                     { name: 'Notepad', iconCls: 'notepad-shortcut', module: 'notepad' },
                     { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},
-                    { name: 'SSD Version Log', iconCls: 'grid-shortcut', module: 'tab-version-log'}
+                    { name: 'SSD Version Log', iconCls: 'grid-shortcut', module: 'tab-version-log'},
+                    { name: 'SSD User Manager', iconCls: 'grid-shortcut', module: 'tab-user-manager'}
                 ]
             }),
 
