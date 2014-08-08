@@ -49,17 +49,34 @@ Ext.define("SSD_Web.view.main.Login",{
                                 console.log('%clogin!', 'color: blue;');
 
                                 // submit
-                                // var form = this.up('form').getForm();
-                                // if (form.isValid()) {
-                                //     form.submit({
-                                //         success: function(form, action) {
-                                //            Ext.Msg.alert('Success', action.result.msg);
-                                //         },
-                                //         failure: function(form, action) {
-                                //             Ext.Msg.alert('Failed', action.result.msg);
-                                //         }
-                                //     });
-                                // }
+                                var form = this.up('form').getForm();
+                                if (form.isValid()) {
+                                    // form.submit({
+                                    //     success: function(form, action) {
+                                    //        Ext.Msg.alert('Success', action.result.msg);
+                                    //     },
+                                    //     failure: function(form, action) {
+                                    //         Ext.Msg.alert('Failed', action.result.msg);
+                                    //     }
+                                    // });
+
+                                    Ext.Ajax.request({
+                                        url: 'http://127.0.0.1:3333/api/login/',
+                                        method: 'POST',
+                                        params: {
+                                            username: this.up('form').down('textfield[name=Name]').value,
+                                            password: this.up('form').down('textfield[name=Password]').value,
+                                            source: 'web'
+                                        },
+                                        success: function(response){
+                                            var text = response.responseText;
+                                            // process server response here
+
+                                            debugger;
+                                        }
+                                    });
+                                }
+
 
                                 // main
                                 var main = Ext.create('SSD_Web.view.main.Home');
