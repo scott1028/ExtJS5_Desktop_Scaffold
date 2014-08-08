@@ -12,3 +12,7 @@ API | Description
 --- | ---
 **grunt lift**      | To lift development server
 **grunt halt**      | Force to stop development server by kill ps named grunt
+
+# Important
+
+	Only ExtJS 5.0.0 work fine.
