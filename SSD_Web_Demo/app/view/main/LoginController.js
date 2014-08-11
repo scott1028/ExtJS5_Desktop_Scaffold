@@ -32,12 +32,31 @@ Ext.define('SSD_Web.view.main.LoginController', {
                     source: 'web'
                 },
                 success: function(response){
-                    var text = response.responseText;
-                    // main
-                    var main = Ext.create('SSD_Web.view.main.Home');
-                    self.view.up('#main-layout').add(main);
 
-                    // 
+                    Ext.Ajax.setUseDefaultXhrHeader(false);
+
+                    // send login request
+                    // Ext.Ajax.request({
+                    //     url: '/api/privilege/function_tree/',
+                    //     method: 'GET',
+                    //     success: function(response){
+                    //         var data = Ext.util.JSON.decode(response.responseText);
+                    //         var menu = SSD_Web.build_menu(data.objects);
+
+                    //         self.view.up('#main-layout').add(Ext.create('SSD_Web.view.main.Home', {
+                    //             tbar: menu
+                    //         }));
+
+                    //         self.view.destroy();
+
+
+                    //     },
+                    //     failure: function(){
+                    //         //
+                    //     }
+                    // });
+
+                    self.view.up('#main-layout').add(Ext.create('SSD_Web.view.main.Home'));
                     self.view.destroy();
 
                     // set a logined flag

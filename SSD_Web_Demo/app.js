@@ -18,6 +18,71 @@ Ext.application({
     // of merge conflicts when upgrading to new versions of Sencha Cmd.
     //-------------------------------------------------------------------------
 
+    init: function(){
+        console.log('init');
+
+        SSD_Web.build_menu = function(data, child){
+            var output = [];
+            for(var i = 0; i < data.length; i++){
+                var item = {
+                    text: data[i].name,
+                    xtype: 'button'
+                }
+
+                if(data[i].children != undefined && data[i].children.length > 0){
+                    var tmp = SSD_Web.build_menu(data[i].children);
+                    item.menu = tmp;
+                }
+                output.push(item);
+            }
+            return output;
+
+            // menu = Ext.create('Ext.menu.Menu', {
+            //         width: 100,
+            //         plain: true,
+            //         floating: false,  // usually you want this set to True (default)
+            //         // renderTo: Ext.getBody(),  // usually rendered by it's containing component
+            //         items: [{
+            //             text: 'plain item 1'
+            //         },{
+            //             text: 'plain item 2'
+            //         }]});
+
+            // return [
+            //     {
+            //         xtype: 'button',
+            //         text: 'test',
+            //         menu: [
+            //             {text: '1'}
+            //         ]
+            //     }
+            //     // Ext.create('Ext.menu.Menu', {
+            //     //     id: 'mainMenu',
+            //     //     style: {
+            //     //         overflow: 'visible'     // For the Combo popup
+            //     //     },
+            //     //     items: [
+            //     //         {
+            //     //             text: 'I like Ext',
+            //     //             checked: true,       // when checked has a boolean value, it is assumed to be a CheckItem
+            //     //         },
+            //     //     ]
+            //     // })
+            //     // {
+            //     //     text: '1',
+            //     //     menu: {
+            //     //         xtype: 'menu',
+            //     //         items: [
+            //     //             {text: '1'},
+            //     //             {text: '2'},
+            //     //             {text: '3'},
+            //     //         ]
+            //     //     }
+            //     // }
+            // ]
+        };
+    },
+
     // Add My Dependency
     requires: [
         'Ext.window.Window',
@@ -36,6 +101,7 @@ Ext.application({
         'SSD_Web.view.main.HomeModel',
 
         // 
-        'Ext.util.Cookies'
+        'Ext.util.Cookies',
+        'Ext.menu.*',
     ]
 });
