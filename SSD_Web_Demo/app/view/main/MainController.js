@@ -15,6 +15,13 @@ Ext.define('SSD_Web.view.main.MainController', {
     alias: 'controller.main',
 
     init: function(){
-        this.view.add(Ext.create('SSD_Web.view.main.Login'));
+
+        if(Ext.util.Cookies.get('logined') == 200){
+            this.view.add(Ext.create('SSD_Web.view.main.Home'));
+        }
+        else{
+        	this.view.add(Ext.create('SSD_Web.view.main.Login'));
+        };
+
     }
 });

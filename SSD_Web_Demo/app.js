@@ -11,7 +11,7 @@ Ext.application({
     autoCreateViewport: 'SSD_Web.view.main.Main',
     // autoCreateViewport: 'SSD_Web.view.main.Login',
     // autoCreateViewport: 'SSD_Web.view.main.Welcome',
-	
+    
     //-------------------------------------------------------------------------
     // Most customizations should be made to SSD_Web.Application. If you need to
     // customize this file, doing so below this section reduces the likelihood
@@ -34,5 +34,8 @@ Ext.application({
         'SSD_Web.view.main.Home',
         'SSD_Web.view.main.HomeController',
         'SSD_Web.view.main.HomeModel',
+
+        // 
+        'Ext.util.Cookies'
     ]
 });

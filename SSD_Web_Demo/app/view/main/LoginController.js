@@ -40,9 +40,14 @@ Ext.define('SSD_Web.view.main.LoginController', {
                     // 
                     self.view.destroy();
 
+                    // set a logined flag
+                    Ext.util.Cookies.set('logined', 200);
+
                     console.log('%clogin success!', 'color: green;');
                 },
                 failure: function(){
+                    // clear logined flag
+                    Ext.util.Cookies.clear('logined');
                     Ext.MessageBox.alert('SSD System Message', 'Login fail!');
                 }
             });
