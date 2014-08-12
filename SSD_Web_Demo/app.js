@@ -21,65 +21,31 @@ Ext.application({
     init: function(){
         console.log('init');
 
+        // ref: http://dev.sencha.com/extjs/5.0.0/examples/menu/menus.html
+        // menu sub-item can not be button xtype, only root compoent is button
         SSD_Web.build_menu = function(data, child){
+            if(child == undefined){
+                child = false;
+            }
+
             var output = [];
             for(var i = 0; i < data.length; i++){
                 var item = {
                     text: data[i].name,
-                    xtype: 'button'
+                }
+
+                // only root is button, others is item.
+                if(child == false){
+                    item.xtype = 'button'
                 }
 
                 if(data[i].children != undefined && data[i].children.length > 0){
-                    var tmp = SSD_Web.build_menu(data[i].children);
+                    var tmp = SSD_Web.build_menu(data[i].children, true);
                     item.menu = tmp;
                 }
                 output.push(item);
             }
             return output;
-
-            // menu = Ext.create('Ext.menu.Menu', {
-            //         width: 100,
-            //         plain: true,
-            //         floating: false,  // usually you want this set to True (default)
-            //         // renderTo: Ext.getBody(),  // usually rendered by it's containing component
-            //         items: [{
-            //             text: 'plain item 1'
-            //         },{
-            //             text: 'plain item 2'
-            //         }]});
-
-            // return [
-            //     {
-            //         xtype: 'button',
-            //         text: 'test',
-            //         menu: [
-            //             {text: '1'}
-            //         ]
-            //     }
-            //     // Ext.create('Ext.menu.Menu', {
-            //     //     id: 'mainMenu',
-            //     //     style: {
-            //     //         overflow: 'visible'     // For the Combo popup
-            //     //     },
-            //     //     items: [
-            //     //         {
-            //     //             text: 'I like Ext',
-            //     //             checked: true,       // when checked has a boolean value, it is assumed to be a CheckItem
-            //     //         },
-            //     //     ]
-            //     // })
-            //     // {
-            //     //     text: '1',
-            //     //     menu: {
-            //     //         xtype: 'menu',
-            //     //         items: [
-            //     //             {text: '1'},
-            //     //             {text: '2'},
-            //     //             {text: '3'},
-            //     //         ]
-            //     //     }
-            //     // }
-            // ]
         };
     },
 

@@ -19,7 +19,6 @@ Ext.define('SSD_Web.view.main.HomeController', {
                     overflow: 'visible'
                 };
                 self.view.addTool(menu);
-                // self.view.addTool(menu);
             },
             failure: function(){
                 //
