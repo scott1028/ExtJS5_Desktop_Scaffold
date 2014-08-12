@@ -61,7 +61,12 @@ Ext.application({
         // menu action mapping
         SSD_Web.menu_handle_mapping = {
             User: function(){
-                
+                this.up('#main-layout').down('[region=center]:last').destroy();
+                this.up('#main-layout').down('[region=center]:first').add({
+                    xtype: 'panel',
+                    html: 'test2' + (new Date).toJSON(),
+                    region: 'center'
+                })
             }
         };
     },
