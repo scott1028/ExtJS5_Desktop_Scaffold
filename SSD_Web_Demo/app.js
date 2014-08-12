@@ -43,9 +43,26 @@ Ext.application({
                     var tmp = SSD_Web.build_menu(data[i].children, true);
                     item.menu = tmp;
                 }
+
+                if(data[i].children == undefined){
+                    item.handler = function(c, e){
+                        console.log(c.text);
+                        if(SSD_Web.menu_handle_mapping[c.text]){
+                            SSD_Web.menu_handle_mapping[c.text].call(c);
+                        }
+                    }
+                }
+
                 output.push(item);
             }
             return output;
+        };
+
+        // menu action mapping
+        SSD_Web.menu_handle_mapping = {
+            User: function(){
+                
+            }
         };
     },
 

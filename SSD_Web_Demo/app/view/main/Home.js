@@ -14,6 +14,8 @@ Ext.define("SSD_Web.view.main.Home",{
 
     region: 'center',
 
+    title: 'Taisys SSD SoftSIM System',
+
     items: [
         {
             region: 'center',

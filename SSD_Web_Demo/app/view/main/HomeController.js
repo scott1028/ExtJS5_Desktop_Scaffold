@@ -15,9 +15,6 @@ Ext.define('SSD_Web.view.main.HomeController', {
             success: function(response){
                 var data = Ext.util.JSON.decode(response.responseText);
                 var menu = SSD_Web.build_menu(data.objects);
-                menu.style = {
-                    overflow: 'visible'
-                };
                 self.view.addTool(menu);
             },
             failure: function(){

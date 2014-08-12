@@ -6,6 +6,15 @@ Ext.define("SSD_Web.view.main.Login",{
         "type": "main-login"
     },
     id: 'login_view',
+
+    layout: {
+        type: 'fit'
+    },
+
+    style: {
+        'background-color': 'white'
+    },
+
     items: [
         {
             xtype: 'window',
