@@ -16,27 +16,8 @@ Ext.define('SSD_Web.view.main.MainController', {
 
     init: function(){
 
-        if(Ext.util.Cookies.get('logined') == 200){
+        if(Ext.util.Cookies.get('loggedin') == 200){
             this.view.add(Ext.create('SSD_Web.view.main.Home'));
-
-            // Ext.Ajax.setUseDefaultXhrHeader(false);
-
-            // // send login request
-            // Ext.Ajax.request({
-            //     url: '/api/privilege/function_tree/',
-            //     method: 'GET',
-            //     success: function(response){
-            //         var data = Ext.util.JSON.decode(response.responseText);
-            //         var menu = SSD_Web.build_menu(data.objects);
-
-            //         self.view.add(Ext.create('SSD_Web.view.main.Home', {
-            //             tbar: menu
-            //         }));
-            //     },
-            //     failure: function(){
-            //         //
-            //     }
-            // });
         }
         else{
         	this.view.add(Ext.create('SSD_Web.view.main.Login'));
