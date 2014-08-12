@@ -89,7 +89,14 @@ Ext.application({
         'SSD_Web.view.main.HomeModel',
 
         // 
+        'SSD_Web.model.User',
+
+        // 
+        'SSD_Web.store.User',
+
+        // 
         'Ext.util.Cookies',
         'Ext.menu.*',
+        'Ext.data.proxy.Rest',
     ]
 });
