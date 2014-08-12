@@ -7,6 +7,12 @@
     <title>SSD_Web</title>
 
     <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+    <style>
+    	.x-title-text-default:after {
+            /*content: 'Taisys SSD' !important;*/
+    		content: '' !important;
+    	}
+    </style>
     <script type="text/javascript">var Ext=Ext||{};Ext.manifest="app.json";Ext=Ext||{};
 Ext.Boot=function(g){function l(a){if(a.$isRequest)return a;a=a.url?a:{url:a};var b=a.url,b=b.charAt?[b]:b,c=a.boot||k,d=a.charset||c.config.charset,h=("cache"in a?!a.cache:c.config.disableCaching)&&c.config.disableCachingParam+"\x3d"+(new Date).getTime();q(a,{urls:b,boot:c,charset:d,buster:h});q(this,a)}function t(a){if(a.$isEntry)return a;var b=a.boot||k,c=a.charset||b.config.charset,d=a.buster||("cache"in a?!a.cache:b.config.disableCaching)&&b.config.disableCachingParam+"\x3d"+(new Date).getTime();
 q(a,{boot:b,charset:c,buster:d,requests:[]});q(this,a)}var j=document,m=function(a,b,c){c&&m(a,c);if(a&&b&&"object"==typeof b)for(var d in b)a[d]=b[d];return a},e={disableCaching:/[?&](?:cache|disableCacheBuster)\b/i.test(location.search)||!/http[s]?\:/i.test(location.href)||/(^|[ ;])ext-cache=1/.test(j.cookie)?!1:!0,disableCachingParam:"_dc",loadDelay:!1,preserveScripts:!0,charset:void 0},w=/\.css(?:\?|$)/i,v=j.createElement("a"),u="undefined"!==typeof window,r={browser:u,node:!u&&"function"===typeof require,

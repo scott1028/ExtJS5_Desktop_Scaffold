@@ -1,4 +1,4 @@
-$image-search-path: '/home/scottlan/workspace/app/build/production/SSD_Web/resources';
+$image-search-path: '/home/scott/workspace/ExtJS5_Desktop_Scaffold/SSD_Web_Demo/build/production/SSD_Web/resources';
 $theme-name:  'ext-theme-neptune' !default;
 $include-ext-abstractmanager: true;
 $include-ext-action: true;
@@ -716,14 +716,17 @@ $include-extthemeneptune-resizer-splitter: true;
 $include-extthemeneptune-toolbar-paging: true;
 $include-extthemeneptune-toolbar-toolbar: true;
 $include-ssd_web-application: true;
+$include-ssd_web-model-user: true;
+$include-ssd_web-store-user: true;
+$include-ssd_web-view-main-home: true;
+$include-ssd_web-view-main-homecontroller: true;
+$include-ssd_web-view-main-homemodel: true;
+$include-ssd_web-view-main-login: true;
 $include-ssd_web-view-main-logincontroller: true;
 $include-ssd_web-view-main-loginmodel: true;
 $include-ssd_web-view-main-main: true;
 $include-ssd_web-view-main-maincontroller: true;
 $include-ssd_web-view-main-mainmodel: true;
-$include-ssd_web-view-main-welcome: true;
-$include-ssd_web-view-main-welcomecontroller: true;
-$include-ssd_web-view-main-welcomemodel: true;
 /* including package ext-theme-base */
 @import '../../../../../ext/packages/ext-theme-base/sass/etc/all';
 /* including package ext-theme-neutral */

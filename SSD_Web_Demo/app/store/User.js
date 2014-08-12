@@ -1,4 +1,5 @@
-
+// Chrome has a bug store.data will return [undefined * 8],
+// but store.data.items is correct data array.
 
 Ext.define('SSD_Web.store.User', {
     extend: 'Ext.data.Store',
@@ -10,7 +11,6 @@ Ext.define('SSD_Web.store.User', {
         reader: {
             rootProperty: 'objects',
             type: 'json',
-            model: 'SSD_Web.model.User'
         }
-    },
+    }
 });
