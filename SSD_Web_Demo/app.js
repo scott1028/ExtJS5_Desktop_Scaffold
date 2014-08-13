@@ -61,38 +61,10 @@ Ext.application({
         // menu action mapping
         SSD_Web.menu_handle_mapping = {
             User: function(){
-                this.up('#main-layout').down('[region=center]:last').destroy();
-                // this.up('#main-layout').down('[region=center]:first').add({
-                //     xtype: 'panel',
-                //     html: 'test2' + (new Date).toJSON(),
-                //     region: 'center'
-                // });
-                
-                this.up('#main-layout').down('[region=center]:first').add({
-                    xtype: 'grid',
-                    columns: [
-                        { width: 'auto', text: 'CardIssuer', dataIndex: 'card_issuer'},
-                        { width: 'auto', text: 'CreateDate', dataIndex: 'create_date'},
-                        { width: 'auto', text: 'CreateUser', dataIndex: 'create_user'},
-                        { width: 'auto', text: 'Email', dataIndex: 'email'},
-                        { width: 'auto', text: 'ID', dataIndex: 'id'},
-                        { width: 'auto', text: 'LastLogin', dataIndex: 'last_login'},
-                        { width: 'auto', text: 'PasswordLastUpdateDate', dataIndex: 'password_last_update_date'},
-                        { width: 'auto', text: 'PasswordResetCount', dataIndex: 'password_reset_count'},
-                        { width: 'auto', text: 'ResourceURI', dataIndex: 'resource_uri'},
-                        { width: 'auto', text: 'Roles', dataIndex: 'roles'},
-                        { width: 'auto', text: 'Status', dataIndex: 'status'},
-                        { width: 'auto', text: 'SubscriberID', dataIndex: 'subscriber_id'},
-                        { width: 'auto', text: 'SuspendReason', dataIndex: 'suspend_reason'},
-                        { width: 'auto', text: 'Type', dataIndex: 'type'},
-                        { width: 'auto', text: 'UpdateDate', dataIndex: 'update_date'},
-                        { width: 'auto', text: 'UpdateUser', dataIndex: 'update_user'},
-                        { width: 'auto', text: 'UserID', dataIndex: 'user_id'},
-                        { width: 'auto', text: 'Username', dataIndex: 'username'},
-                    ],
-                    region: 'center',
-                    store: Ext.create('SSD_Web.store.User')
-                });
+                var target = this.up('#main-layout').down('#centerCmp');
+                var target_parent = target.up();
+                target.destroy();
+                target_parent.add(Ext.create('SSD_Web.view.admin.User'));
             }
         };
     },
@@ -110,6 +82,7 @@ Ext.application({
         'Ext.menu.*',
         'Ext.data.proxy.Rest',
         'Ext.data.*',
+        'Ext.grid.*',
 
         // 
         'SSD_Web.view.main.Login',
@@ -120,6 +93,11 @@ Ext.application({
         'SSD_Web.view.main.Home',
         'SSD_Web.view.main.HomeController',
         'SSD_Web.view.main.HomeModel',
+
+        // 
+        'SSD_Web.view.admin.User',
+        'SSD_Web.view.admin.UserController',
+        'SSD_Web.view.admin.UserModel',
 
         // 
         'SSD_Web.model.User',

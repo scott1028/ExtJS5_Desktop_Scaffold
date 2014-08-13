@@ -11,13 +11,14 @@ Ext.define("SSD_Web.view.main.Home",{
     layout: {
         type: 'border'
     },
-
     region: 'center',
 
     title: 'Taisys SSD SoftSIM System',
 
+    // switch view component
     items: [
         {
+            id: 'centerCmp',
             region: 'center',
             xtype: 'panel',
             html: '<p>Hello</p>'
