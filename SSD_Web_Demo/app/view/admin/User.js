@@ -48,7 +48,10 @@ Ext.define("SSD_Web.view.admin.User",{
                     ptype: 'rowediting',
                     clicksToEdit: 1
                 }
-            ]
+            ],
+            listeners: {
+                'edit': 'editHandler'
+            }
         }
     ]
 });
