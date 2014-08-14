@@ -9,6 +9,25 @@ Ext.define('SSD_Web.view.admin.UserController', {
         obj.record.set('username', obj.newValues.username);
 
         // extjs use PUT request
-        obj.record.save();
+        obj.record.patch();
+
+        // debugger;
+
+        // test Ajax by PATCH
+        // Ext.Ajax.request({
+        //     method: 'PATCH',
+        //     url: '/',
+        //     params: {
+        //         id: 1
+        //     },
+        //     success: function(response){
+        //         // var text = response.responseText;
+        //         // process server response here
+        //         debugger;
+        //     },
+        //     failure: function(res, xhr){
+        //         debugger;
+        //     }
+        // });
     }
 });

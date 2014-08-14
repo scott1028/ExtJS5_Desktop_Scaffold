@@ -30,5 +30,10 @@ Ext.define('SSD_Web.model.User', {
             rootProperty: 'objects',
             type: 'json',
         }
+    },
+
+    // add new method
+    patch: function(){
+        debugger;
     }
 });
