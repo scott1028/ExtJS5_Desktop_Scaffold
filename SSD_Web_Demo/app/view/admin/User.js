@@ -23,7 +23,17 @@ Ext.define("SSD_Web.view.admin.User",{
                 { width: 'auto', text: 'SubscriberID', dataIndex: 'subscriber_id'},
                 { width: 'auto', text: 'CardIssuer', dataIndex: 'card_issuer'},
                 { width: 'auto', text: 'SuspendReason', dataIndex: 'suspend_reason'},
-                { width: 'auto', text: 'LastLogin', dataIndex: 'last_login'},
+                { width: 'auto', text: 'LastLogin', dataIndex: 'last_login',
+                  editor: {
+                    // xtype: 'datefield',
+                    allowBlank: true,
+                    // format: 'Y-m-d',
+                    format: 'Y-m-d H:i:s',
+                  },
+                  xtype:'datecolumn',
+                  // format: 'Y-m-d',
+                  format: 'Y-m-d H:i:s',
+                },
                 { width: 'auto', text: 'PasswordLastUpdateDate', dataIndex: 'password_last_update_date'},
                 { width: 'auto', text: 'PasswordResetCount', dataIndex: 'password_reset_count'},
                 { width: 'auto', text: 'Roles', dataIndex: 'roles'},
@@ -34,7 +44,6 @@ Ext.define("SSD_Web.view.admin.User",{
                 { width: 'auto', text: 'UpdateDate', dataIndex: 'update_date'},
             ],
             region: 'center',
-            // store: Ext.create('SSD_Web.store.User'),
             store: null,
             bbar: [
                 '->',
@@ -52,6 +61,7 @@ Ext.define("SSD_Web.view.admin.User",{
             listeners: {
                 'edit': 'editHandler'
             },
+            // store: Ext.create('SSD_Web.store.User'),
             initComponent: function(){
                 // create a store
                 this.store = Ext.create('SSD_Web.store.User');

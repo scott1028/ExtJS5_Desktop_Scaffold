@@ -9,7 +9,7 @@ Ext.define('SSD_Web.view.admin.UserController', {
         obj.record.set('username', obj.newValues.username);
 
         // extjs use PUT request
-        obj.record.patch();
+        obj.record.patch(obj.newValues);
 
         // debugger;
 

@@ -12,7 +12,8 @@ Ext.define('SSD_Web.model.User', {
         { text: 'SubscriberID', type: 'auto' },
         { text: 'CardIssuer', type: 'auto' },
         { text: 'SuspendReason', type: 'auto' },
-        { text: 'LastLogin', type: 'auto' },
+        // { text: 'LastLogin', type: 'date', dateFormat: 'Y-m-d' },
+        { text: 'LastLogin', type: 'date', dateFormat: 'Y-m-d H:i:s' },
         { text: 'PasswordLastUpdateDate', type: 'auto' },
         { text: 'PasswordResetCount', type: 'auto' },
         { text: 'Roles', type: 'auto' },
@@ -33,7 +34,7 @@ Ext.define('SSD_Web.model.User', {
     },
 
     // add new method
-    patch: function(){
-        debugger;
+    patch: function(newValues){
+        // debugger;
     }
 });

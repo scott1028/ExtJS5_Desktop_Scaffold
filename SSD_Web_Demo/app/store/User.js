@@ -6,5 +6,5 @@ Ext.define('SSD_Web.store.User', {
     extend: 'Ext.data.Store',
     model: 'SSD_Web.model.User',
     id: 'userStore',
-    autoLoad: true
+    autoLoad: true,
 });
