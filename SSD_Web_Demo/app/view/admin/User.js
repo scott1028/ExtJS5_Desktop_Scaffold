@@ -34,8 +34,8 @@ Ext.define("SSD_Web.view.admin.User",{
                 { width: 'auto', text: 'UpdateDate', dataIndex: 'update_date'},
             ],
             region: 'center',
-            // preload
-            store: Ext.create('SSD_Web.store.User'),
+            // store: Ext.create('SSD_Web.store.User'),
+            store: null,
             bbar: [
                 '->',
                 {
@@ -51,6 +51,13 @@ Ext.define("SSD_Web.view.admin.User",{
             ],
             listeners: {
                 'edit': 'editHandler'
+            },
+            initComponent: function(){
+                // create a store
+                this.store = Ext.create('SSD_Web.store.User');
+
+                // call parent method
+                Ext.grid.Panel.prototype.initComponent.call(this)
             }
         }
     ]
