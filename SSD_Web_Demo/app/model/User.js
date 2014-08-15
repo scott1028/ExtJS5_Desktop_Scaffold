@@ -14,7 +14,8 @@ Ext.define('SSD_Web.model.User', {
         { name: 'suspend_reason', type: 'auto' },
         // { name: 'last_login', type: 'date', dateFormat: 'Y-m-d' },
         // { name: 'last_login', type: 'date', dateFormat: 'Y-m-d H:i:s' },
-        { name: 'last_login', type: 'date', dateFormat: 'n/j/Y' },
+        // { name: 'last_login', type: 'date', dateFormat: 'n/j/Y' },
+        { name: 'last_login', type: 'date', dateFormat: 'm/d/Y H:i' },
         { name: 'password_last_update_date', type: 'auto' },
         { name: 'password_reset_count', type: 'auto' },
         { name: 'roles', type: 'auto' },
@@ -31,6 +32,17 @@ Ext.define('SSD_Web.model.User', {
         reader: {
             rootProperty: 'objects',
             type: 'json',
+            // data pre convert
+            transform: {
+                fn: function(data) {
+                    data.objects.forEach(function(r, i ,a){
+                        console.log(r.last_login);
+                        r.last_login = new Date(r.last_login + '+0800');
+                    })
+                    return data;
+                },
+                scope: this
+            }
         }
     },
 

@@ -1,4 +1,3 @@
-
 Ext.define("SSD_Web.view.main.Home",{
     "extend": "Ext.panel.Panel",
     // "extend": "Ext.container.Container",
@@ -22,6 +21,9 @@ Ext.define("SSD_Web.view.main.Home",{
             region: 'center',
             xtype: 'panel',
             html: '<p>Hello</p>'
-        }
+        },
+
+        // test
+        // test_cpm
     ]
 });

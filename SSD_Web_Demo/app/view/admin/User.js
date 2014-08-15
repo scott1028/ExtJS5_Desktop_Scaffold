@@ -27,14 +27,10 @@ Ext.define("SSD_Web.view.admin.User",{
                   editor: {
                     xtype: 'datefield',
                     allowBlank: false,
-                    format: 'm/d/Y',
-                    // format: 'Y-m-d',
-                    // format: 'Y-m-d H:i:s',
+                    format: 'Y-m-d H:i:s',
                   },
                   xtype:'datecolumn',
-                  format: 'm/d/Y',
-                  // format: 'Y-m-d',
-                  // format: 'Y-m-d H:i:s',
+                  format: 'Y-m-d H:i:s'
                 },
                 { width: 'auto', header: 'PasswordLastUpdateDate', dataIndex: 'password_last_update_date'},
                 { width: 'auto', header: 'PasswordResetCount', dataIndex: 'password_reset_count'},
