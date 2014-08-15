@@ -84,6 +84,9 @@ Ext.application({
         'Ext.data.*',
         'Ext.grid.*',
 
+        // My own UI
+        'SSD_Web.view.ux.DateTimePicker',
+
         // 
         'SSD_Web.view.main.Login',
         'SSD_Web.view.main.LoginController',

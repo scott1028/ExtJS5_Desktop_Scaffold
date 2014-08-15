@@ -718,7 +718,6 @@ $include-extthemeneptune-toolbar-toolbar: true;
 $include-ssd_web-application: true;
 $include-ssd_web-model-user: true;
 $include-ssd_web-store-user: true;
-$include-ssd_web-ux-datetimefield: true;
 $include-ssd_web-view-admin-user: true;
 $include-ssd_web-view-admin-usercontroller: true;
 $include-ssd_web-view-admin-usermodel: true;
@@ -731,6 +730,7 @@ $include-ssd_web-view-main-loginmodel: true;
 $include-ssd_web-view-main-main: true;
 $include-ssd_web-view-main-maincontroller: true;
 $include-ssd_web-view-main-mainmodel: true;
+$include-ssd_web-view-ux-datetimepicker: true;
 /* including package ext-theme-base */
 @import '../../../../../ext/packages/ext-theme-base/sass/etc/all';
 /* including package ext-theme-neutral */
