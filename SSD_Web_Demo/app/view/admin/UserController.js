@@ -10,24 +10,5 @@ Ext.define('SSD_Web.view.admin.UserController', {
 
         // extjs use PUT request
         obj.record.patch(obj.newValues);
-
-        // debugger;
-
-        // test Ajax by PATCH
-        // Ext.Ajax.request({
-        //     method: 'PATCH',
-        //     url: '/',
-        //     params: {
-        //         id: 1
-        //     },
-        //     success: function(response){
-        //         // var text = response.responseText;
-        //         // process server response here
-        //         debugger;
-        //     },
-        //     failure: function(res, xhr){
-        //         debugger;
-        //     }
-        // });
     }
 });

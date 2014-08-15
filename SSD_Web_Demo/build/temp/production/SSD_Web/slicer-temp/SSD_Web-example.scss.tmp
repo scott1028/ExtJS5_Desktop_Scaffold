@@ -1,4 +1,4 @@
-$image-search-path: '/home/scott/workspace/ExtJS5_Desktop_Scaffold/SSD_Web_Demo/build/production/SSD_Web/resources';
+$image-search-path: '/home/scottlan/workspace/ExtJS5_Desktop_Scaffold/SSD_Web_Demo/build/production/SSD_Web/resources';
 $theme-name:  'ext-theme-neptune' !default;
 $include-ext-abstractmanager: true;
 $include-ext-action: true;
@@ -718,6 +718,7 @@ $include-extthemeneptune-toolbar-toolbar: true;
 $include-ssd_web-application: true;
 $include-ssd_web-model-user: true;
 $include-ssd_web-store-user: true;
+$include-ssd_web-ux-datetimefield: true;
 $include-ssd_web-view-admin-user: true;
 $include-ssd_web-view-admin-usercontroller: true;
 $include-ssd_web-view-admin-usermodel: true;

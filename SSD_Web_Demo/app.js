@@ -73,7 +73,7 @@ Ext.application({
     requires: [
         // Ext System Lib
         'Ext.window.Window',
-        'Ext.form.Panel',
+        'Ext.form.*',
         'Ext.layout.container.Border',
         'Ext.tab.Panel',
         'Ext.grid.Panel',
