@@ -29,48 +29,72 @@ Ext.define("SSD_Web.view.admin.User",{
                     // xtype: 'textfield',
                     allowBlank: false,
                     format: 'Y-m-d H:i:s',
+                    // listeners: {
+                    //     click: {
+                    //         element: 'el',
+                    //         fn: function(){
+                    //             debugger;
+                    //         }
+                    //     }
+                    // },
+                    
                     createPicker: function(){
-                        var me = this,
-                        format = Ext.String.format;
-
-                        var fn = Ext.picker.Date.prototype.renderTpl.pop();
-
-                        Ext.picker.Date.prototype.renderTpl.push('<div>789789</div>');
-
-                        Ext.picker.Date.prototype.renderTpl.push(fn);
-
-                        var dateTimePicker =  Ext.create('Ext.picker.Date',{
-                            pickerField: me,
-                            renderTo: document.body,
-                            floating: true,
-                            hidden: true,
-                            focusOnShow: true,
-                            minDate: me.minValue,
-                            maxDate: me.maxValue,
-                            disabledDatesRE: me.disabledDatesRE,
-                            disabledDatesText: me.disabledDatesText,
-                            disabledDays: me.disabledDays,
-                            disabledDaysText: me.disabledDaysText,
-                            format: me.format,
-                            showToday: me.showToday,
-                            startDay: me.startDay,
-                            minText: format(me.minText, me.formatDate(me.minValue)),
-                            maxText: format(me.maxText, me.formatDate(me.maxValue)),
-                            listeners: {
-                                scope: me,
-                                select: me.onSelect
+                        return Ext.create('Ext.Component', {
+                            html: 'Hello world!',
+                            width: 300,
+                            height: 200,
+                            padding: 20,
+                            style: {
+                                zIndex: 100000
                             },
-                            keyNavConfig: {
-                                esc: function() {
-                                    me.collapse();
-                                    me.focus();
-                                }
-                            },
-                            renderTpl: Ext.picker.Date.prototype.renderTpl
+                            renderTo: document.body
                         });
-
-                        return dateTimePicker;
+                    },
+                    onExpand: function(){
+                        console.log(this.picker);
                     }
+                    // createPicker: function(){
+                    //     var me = this,
+                    //     format = Ext.String.format;
+
+                    //     var fn = Ext.picker.Date.prototype.renderTpl.pop();
+
+                    //     Ext.picker.Date.prototype.renderTpl.push('<div>789789</div>');
+
+                    //     Ext.picker.Date.prototype.renderTpl.push(fn);
+
+                    //     var dateTimePicker =  Ext.create('Ext.picker.Date',{
+                    //         pickerField: me,
+                    //         renderTo: document.body,
+                    //         floating: true,
+                    //         hidden: true,
+                    //         focusOnShow: true,
+                    //         minDate: me.minValue,
+                    //         maxDate: me.maxValue,
+                    //         disabledDatesRE: me.disabledDatesRE,
+                    //         disabledDatesText: me.disabledDatesText,
+                    //         disabledDays: me.disabledDays,
+                    //         disabledDaysText: me.disabledDaysText,
+                    //         format: me.format,
+                    //         showToday: me.showToday,
+                    //         startDay: me.startDay,
+                    //         minText: format(me.minText, me.formatDate(me.minValue)),
+                    //         maxText: format(me.maxText, me.formatDate(me.maxValue)),
+                    //         listeners: {
+                    //             scope: me,
+                    //             select: me.onSelect
+                    //         },
+                    //         keyNavConfig: {
+                    //             esc: function() {
+                    //                 me.collapse();
+                    //                 me.focus();
+                    //             }
+                    //         },
+                    //         renderTpl: Ext.picker.Date.prototype.renderTpl
+                    //     });
+
+                    //     return dateTimePicker;
+                    // }
                   },
                   xtype:'datecolumn',
                   format: 'Y-m-d H:i:s'
