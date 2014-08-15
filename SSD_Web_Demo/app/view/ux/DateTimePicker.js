@@ -72,7 +72,7 @@ Ext.define('SSD_Web.view.ux.DateTimePicker', {
                     
                     // add timepicker
                     '<div>',
-                        '<select style="width: 100%;">',
+                        '<select style="width: 100%;" onclick="HTMLSelectElement.prototype.click.call(this);">',
                             '<tpl for="this.timebuild()">',
                                 '<option value="{.}" onclick="">{.}</option>',
                             '</tpl>',
