@@ -20,6 +20,8 @@ Ext.define("SSD_Web.view.main.Home",{
 
     title: 'Taisys SSD SoftSIM System',
 
+    id: 'centerPanel',
+
     // switch view component
     items: [
         {
