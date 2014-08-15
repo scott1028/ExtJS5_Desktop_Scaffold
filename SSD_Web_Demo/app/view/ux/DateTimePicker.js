@@ -7,6 +7,9 @@ Ext.define('SSD_Web.view.ux.DateTimePicker', {
         var me = this,
             format = Ext.String.format;
 
+        // test input value
+        // http://docs.sencha.com/extjs/5.0.0/apidocs/source/Date2.html#Ext-picker-Date
+
         return new Ext.picker.Date({
             pickerField: me,
             floating: true,
@@ -31,6 +34,11 @@ Ext.define('SSD_Web.view.ux.DateTimePicker', {
                 esc: function() {
                     me.collapse();
                 }
+            },
+            beforeRender: function(){
+                Ext.picker.Date.prototype.beforeRender.call(this);
+                this.renderData.test = 100;
+                this.renderData.time = me.value
             },
             renderTpl: [
                 '<div id="{id}-innerEl" data-ref="innerEl">',
@@ -66,10 +74,15 @@ Ext.define('SSD_Web.view.ux.DateTimePicker', {
                     '<div>',
                         '<select style="width: 100%;">',
                             '<tpl for="this.timebuild()">',
-                                '<option value="{.}">{.}</option>',
+                                '<option value="{.}" onclick="">{.}</option>',
                             '</tpl>',
                         '</select>',
                     '</div>',
+
+                    // add value
+                    '<div>{dayNames}</div>',
+                    '<div>{test}</div>',
+                    '<div>{time}</div>',
 
                     '<tpl if="showToday">',
                         '<div id="{id}-footerEl" data-ref="footerEl" role="presentation" class="{baseCls}-footer">{%this.renderTodayBtn(values, out)%}</div>',
