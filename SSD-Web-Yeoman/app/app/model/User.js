@@ -36,6 +36,9 @@ Ext.define('SSD_Web.model.User', {
 
                 res.records.forEach(function(r, i ,a){
                     r.data.last_login = new Date(r.data.last_login + '+0800');
+                    if(r.data.update_date){
+                        r.data.update_date = new Date(r.data.update_date + '+0800');
+                    }
                 })
 
                 return res;
