@@ -95,6 +95,8 @@ Ext.define('SSD_Web.view.ux.DateTimePicker', {
 Ext.define('SSD_Web.view.ux.DateTimePicker2', {
     extend: 'Ext.form.field.Picker',
     alias: 'widget.datetimefield2',
+
+    // only execute once ( singleton pattern )
     createPicker: function(){
         var me = this;
 
@@ -121,6 +123,19 @@ Ext.define('SSD_Web.view.ux.DateTimePicker2', {
             // find the rowEditor root Node
             renderTo: me.up('[xtype=roweditor]').el.dom,
             style: style,
+            belongTo: me,
+            listeners:  {
+                'click': {
+                    element: 'el',
+                    fn: function(){
+                        this;
+                        me;
+                        // debugger;
+                        console.log(this.el.dom.textContent);
+                        this.el.dom.textContent = this.el.dom.textContent + '!';
+                    }
+                }
+            }
             // items: [
             //     {
             //         xtype: 'datepicker'
