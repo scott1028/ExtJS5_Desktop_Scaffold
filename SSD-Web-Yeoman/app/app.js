@@ -53,8 +53,8 @@ Ext.application({
         // menu action mapping
         SSD_Web.menu_handle_mapping = {
             User: function(){
-                // 
-                Ext.getCmp('centerCmp').destroy();
+                //
+                Ext.getCmp('centerPanel').removeAll();
                 Ext.getCmp('centerPanel').add(Ext.create('SSD_Web.view.admin.User'));
             }
         };
