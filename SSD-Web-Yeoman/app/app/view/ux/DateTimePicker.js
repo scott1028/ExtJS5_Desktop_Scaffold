@@ -178,5 +178,7 @@ Ext.define('SSD_Web.view.ux.DateTimePicker2', {
 
         // invoke one by one click
         console.log(me.value);
+        me.setValue(123);
+        // window.test_ui = me;
     }
 });
