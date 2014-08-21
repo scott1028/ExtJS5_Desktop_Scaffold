@@ -107,6 +107,8 @@ Ext.define('SSD_Web.view.ux.DateTimePicker2', {
             backgroundColor: 'silver'
         }
 
+        // console.log(me.value);
+
         me.picker = Ext.create({
             // xtype: 'panel',
             xtype: 'component',
@@ -131,6 +133,20 @@ Ext.define('SSD_Web.view.ux.DateTimePicker2', {
 
         return me.picker;
     },
+    // getPicker: function(){
+    //     var me = this,
+    //         picker = me.picker;
+
+    //     if (!picker) {
+    //         me.picker = picker = me.createPicker();
+    //         // For upward component searches.
+    //         picker.ownerCmp = me;
+    //     }
+
+    //     console.log(me.value);
+
+    //     return me.picker;
+    // },
     onExpand: function(){   
         var me = this;
 
@@ -158,6 +174,9 @@ Ext.define('SSD_Web.view.ux.DateTimePicker2', {
 
         if(me.picker){
             me.picker.el.dom.style.top = style.top;
-        }        
+        }
+
+        // invoke one by one click
+        console.log(me.value);
     }
 });
