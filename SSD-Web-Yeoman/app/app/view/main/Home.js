@@ -18,7 +18,7 @@ Ext.define("SSD_Web.view.main.Home",{
     },
     region: 'center',
 
-    title: 'Taisys SSD SoftSIM System',
+    title: '<span onclick="location.href=\'/\';" style="cursor: pointer;">Taisys SSD SoftSIM System</span>',
 
     id: 'centerPanel',
 
@@ -28,7 +28,11 @@ Ext.define("SSD_Web.view.main.Home",{
             id: 'centerCmp',
             region: 'center',
             xtype: 'panel',
-            html: '<p>Hello</p>'
+            loader: {
+                url: 'app/view/main/welcome.html',
+                autoLoad: true
+            }
+            // html: '<p>Hello</p>'
         },
 
         // test
