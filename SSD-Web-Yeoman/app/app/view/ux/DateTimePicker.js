@@ -96,104 +96,93 @@ Ext.define('SSD_Web.view.ux.DateTimePicker2', {
     extend: 'Ext.form.field.Picker',
     alias: 'widget.datetimefield2',
 
+    // for render editing colunm value
+    valueToRaw: function(value){
+        var datetime_value = new Date(value);
+        if(datetime_value){
+            return Ext.util.Format.date(datetime_value, 'Y-m-d H:i:s');
+        }
+        else{
+            return Ext.form.field.Picker.prototype.valueToRaw.call(this, value);
+        }
+    },
+
+    //
+    getFieldValue: function(){
+        return datetime_value = new Date(this.getValue());
+    },
+
     // only execute once ( singleton pattern )
     createPicker: function(){
         var me = this;
 
-        var style = {
-            position: 'absolute !important',
-            width: '200px',
-            height: '200px',
-            left: me.el.dom.style.left,
-            top: '50x',
-            backgroundColor: 'silver'
-        }
-
-        // console.log(me.value);
+        var datetime_value = new Date(this.getValue());
 
         me.picker = Ext.create({
-            // xtype: 'panel',
-            xtype: 'component',
-            // layout: {
-            //     type: 'border'
-            // },
-            // width: '100%',
-            // height: '100%',
-            html: '<p>Hello</p>',
-            // find the rowEditor root Node
+            xtype: 'panel',
+            layout: {
+                type: 'vbox'
+            },
             renderTo: me.up('[xtype=roweditor]').el.dom,
-            style: style,
-            belongTo: me,
+            style: {
+                position: 'absolute !important',
+                left: me.el.dom.offsetLeft + 'px'
+            },
             listeners:  {
                 'click': {
                     element: 'el',
                     fn: function(){
                         this;
                         me;
-                        // debugger;
                         console.log(this.el.dom.textContent);
-                        this.el.dom.textContent = this.el.dom.textContent + '!';
                     }
                 }
-            }
-            // items: [
-            //     {
-            //         xtype: 'datepicker'
-            //     },
-            //     {
-            //         xtype: 'timepicker'
-            //     }
-            // ]
+            },
+            items: [
+                {
+                    width: '100%',
+                    xtype: 'datefield',
+                    format: 'Y-m-d',
+                    value: datetime_value,
+                    listeners: {
+                        'select': {
+                            element: 'el',
+                            fn: function(el, date, eOpts){
+                                me.setValue(
+                                    date.value + ' ' + me.picker.down('timefield').inputEl.dom.value
+                                );
+                            }
+                        }
+                    }
+                },
+                {
+                    width: '100%',
+                    xtype: 'timefield',
+                    format: 'H:i:s',
+                    value: datetime_value,
+                    listeners: {
+                        select: function(el, time, eOpts){
+                            me.setValue(
+                                me.picker.down('datefield').inputEl.dom.value + ' ' + el.inputEl.dom.value
+                            );
+                        }
+                    }
+                }
+            ]
         });
 
         return me.picker;
     },
-    // getPicker: function(){
-    //     var me = this,
-    //         picker = me.picker;
-
-    //     if (!picker) {
-    //         me.picker = picker = me.createPicker();
-    //         // For upward component searches.
-    //         picker.ownerCmp = me;
-    //     }
-
-    //     console.log(me.value);
-
-    //     return me.picker;
-    // },
-    onExpand: function(){   
+    getPicker: function() {
         var me = this;
+        var picker = Ext.form.field.Picker.prototype.getPicker.call(me);
+        picker.el.setStyle('left', me.el.dom.offsetLeft +'px');
 
-        var roweditor = me.up('[xtype=roweditor]').el.dom;
-        var contaner_parent = roweditor.offsetParent;
+        picker.down('datefield')
+            .setValue(me.getFieldValue());
+        picker.down('timefield')
+            .setValue(me.getFieldValue());
 
-        var style = {
-            position: 'absolute !important',
-            width: '200px',
-            height: '200px',
-            left: me.el.dom.style.left,
-            top: '50x',
-            backgroundColor: 'silver'
-        }
-
-        // drop to top
-        if(roweditor.offsetTop + 200 >= contaner_parent.clientHeight){
-            style.top = '-200px';
-        }
-
-        // drop to bottom
-        if(roweditor.offsetTop + 200 <= contaner_parent.clientHeight){
-            style.top = '44px';
-        }
-
-        if(me.picker){
-            me.picker.el.dom.style.top = style.top;
-        }
-
-        // invoke one by one click
-        console.log(me.value);
-        me.setValue(123);
-        // window.test_ui = me;
-    }
+        return me.picker;
+    },
 });
