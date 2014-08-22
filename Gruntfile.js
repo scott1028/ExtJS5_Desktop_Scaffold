@@ -6,6 +6,9 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
+
+// var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+
 module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -53,23 +56,32 @@ module.exports = function (grunt) {
           port: 8000,
           hostname: '*',
           debug: true,
-          middleware: function (connect, options) {
-            var optBase = (typeof options.base === 'string') ? [options.base] : options.base;
+        },
+        // grunt-connect-proxy
+        proxies: [
+            {
+                context: '/api/',
+                host: '127.0.0.1:3333/api/',
+                changeOrigin: true
+            }
+        ]
+        //   middleware: function (connect, options) {
+        //     var optBase = (typeof options.base === 'string') ? [options.base] : options.base;
 
-            // add new reverse proxy uri
-            return [
-              require('connect-modrewrite')([
-                // 順序有影響(前面的會先配置)
-                '^/api/(.*)$ http://127.0.0.1:3333/api/$1 [P,L]'
-              ])
-            ]
+        //     // add new reverse proxy uri
+        //     return [
+        //       require('connect-modrewrite')([
+        //         // 順序有影響(前面的會先配置)
+        //         '^/api/(.*)$ http://127.0.0.1:3333/api/$1 [P,L]'
+        //       ])
+        //     ]
 
-            // add local html file
-            .concat(optBase.map(function(path){
-              return connect.static(path);
-            }));
-          }
-        }
+        //     // add local html file
+        //     .concat(optBase.map(function(path){
+        //       return connect.static(path);
+        //     }));
+        //   }
+        // }
       }
     },
 
