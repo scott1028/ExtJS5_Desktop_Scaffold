@@ -56,6 +56,10 @@ Ext.application({
                 //
                 Ext.getCmp('centerPanel').removeAll();
                 Ext.getCmp('centerPanel').add(Ext.create('SSD_Web.view.admin.User'));
+            },
+            Role: function(){
+                Ext.getCmp('centerPanel').removeAll();
+                Ext.getCmp('centerPanel').add(Ext.create('SSD_Web.view.admin.Role'));
             }
         };
     },
