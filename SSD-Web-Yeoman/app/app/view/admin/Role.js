@@ -24,9 +24,10 @@ Ext.define("SSD_Web.view.admin.Role",{
             padding: 0,
             style: {
                 backgroundColor: 'silver',
-                display: 'flex',
-                flexDirection: 'column',
-                flexWrap: 'wrap',
+                position: 'relative'
+                // display: 'flex',
+                // flexDirection: 'column',
+                // flexWrap: 'wrap',
             },
             store: Ext.create('Ext.data.Store', {
                    id:'imagesStore',
@@ -46,6 +47,10 @@ Ext.define("SSD_Web.view.admin.Role",{
                        { src:'http://www.sencha.com/img/20110215-feat-data.png', caption:'Advanced Data' },
                        { src:'http://www.sencha.com/img/20110215-feat-html5.png', caption:'Overhauled Theme' },
                        { src:'http://www.sencha.com/img/20110215-feat-perf.png', caption:'Performance Tuned' },
+                       { src:'http://www.sencha.com/img/20110215-feat-drawing.png', caption:'Drawing & Charts' },
+                       { src:'http://www.sencha.com/img/20110215-feat-data.png', caption:'Advanced Data' },
+                       { src:'http://www.sencha.com/img/20110215-feat-html5.png', caption:'Overhauled Theme' },
+                       { src:'http://www.sencha.com/img/20110215-feat-perf.png', caption:'Performance Tuned' },
                    ]
             }),
             tpl: null,
@@ -57,14 +62,23 @@ Ext.define("SSD_Web.view.admin.Role",{
               // design tpl
               me.tpl = new Ext.XTemplate(
                 '<tpl for=".">',
-                    '<div style="margin: 25px; width: 75px; height: 75px;" class="thumb-wrap">',
+                  '<div style="margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
                       '<img src="{src}" style="width: 100%; height: 100%;" />',
                       '<br/><span>{caption}{#}{[xindex]}</span>',
-                      // '<tpl if="xindex == 4">',
-                      //   '<hr>',
-                      // '</tpl>',
                     '</div>',
-                '</tpl>');
+                '</tpl>', {
+                  left: function(index){
+                    index--;
+                    var val = parseInt(index / 4) * 125;
+                    console.log(val);
+                    return val;
+                  },
+                  top: function(index){
+                    index--;
+                    var val = (index  % 4) * 125;
+                    return val;
+                  }
+                });
 
               // call super
               Ext.view.View.prototype.initComponent.call(this);
