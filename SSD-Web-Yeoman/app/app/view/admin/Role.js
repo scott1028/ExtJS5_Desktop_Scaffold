@@ -64,7 +64,7 @@ Ext.define("SSD_Web.view.admin.Role",{
                 '<tpl for=".">',
                   '<div style="margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
                       '<img src="{src}" style="width: 100%; height: 100%;" />',
-                      '<br/><span>{caption}{#}{[xindex]}</span>',
+                      '<div style="text-align: center;">{caption}{#}{[xindex]}</div>',
                     '</div>',
                 '</tpl>', {
                   left: function(index){
@@ -92,9 +92,9 @@ Ext.define("SSD_Web.view.admin.Role",{
 
               me.tpl = new Ext.XTemplate(
               '<tpl for=".">',
-                '<div style="margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
+                '<div style="cursor: pointer;margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
                     '<img src="{src}" style="width: 100%; height: 100%;" />',
-                    '<br/><span>{caption}{#}{[xindex]}</span>',
+                    '<div style="text-align: center;">{caption}{#}{[xindex]}</div>',
                   '</div>',
               '</tpl>', {
                 left: function(index){
