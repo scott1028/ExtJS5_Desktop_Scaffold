@@ -29,6 +29,7 @@ Ext.define("SSD_Web.view.admin.Role",{
                 // flexDirection: 'column',
                 // flexWrap: 'wrap',
             },
+            // get prebuild then set it to here
             store: Ext.create('Ext.data.Store', {
                    id:'imagesStore',
                    model: Ext.define('Image', {

@@ -26,13 +26,13 @@ Ext.define("SSD_Web.view.admin.User",{
 
             columns: [
                 { width: 'auto', flex: 0.3, header: 'ID', dataIndex: 'id'},
-                { width: 'auto', flex: 1, header: 'UserID', dataIndex: 'user_id'},
+                { width: 'auto', flex: 2, header: 'UserID', dataIndex: 'user_id'},
                 { width: 'auto', flex: 1, header: 'Username', dataIndex: 'username', editor: true },
-                { width: 'auto', flex: 1, header: 'Email', dataIndex: 'email', editor: true },
+                { width: 'auto', flex: 2, header: 'Email', dataIndex: 'email', editor: true },
                 { width: 'auto', flex: 1, header: 'User Type', dataIndex: 'type'},
                 { width: 'auto', flex: 1, header: 'User Status', dataIndex: 'status', editor: true},
                 { width: 'auto', flex: 1, header: 'SuspendReason', dataIndex: 'suspend_reason', editor: true},
-                { width: 'auto', flex: 1, header: 'SubscriberID', dataIndex: 'subscriber_id'},
+                { width: 'auto', flex: 2, header: 'SubscriberID', dataIndex: 'subscriber_id'},
                 { width: 'auto', flex: 1, header: 'CardIssuer', dataIndex: 'card_issuer'},
                 { width: 'auto', flex: 1, header: 'CreateUser', dataIndex: 'create_user'},
                 { width: 'auto', flex: 1, header: 'UpdateDate', dataIndex: 'update_date',
@@ -42,9 +42,10 @@ Ext.define("SSD_Web.view.admin.User",{
                         format: 'Y-m-d H:i:s'
                     },
                     xtype: 'datecolumn',
-                    format: 'Y-m-d H:i:s'
+                    format: 'Y-m-d H:i:s',
+                    minWidth: 250
                 },
-                { width: 'auto', flex: 3, header: 'LastLogin', dataIndex: 'last_login',
+                { width: 'auto', flex: 2, header: 'LastLogin', dataIndex: 'last_login',
                   editor: {
                     xtype: 'datetimefield2',
                     allowBlank: false,
