@@ -25,6 +25,9 @@ Ext.define("SSD_Web.view.admin.Role",{
             style: {
                 backgroundColor: 'silver',
                 position: 'relative',
+                background: 'url(/img/default.jpg)',
+                backgroundSize: '100%',
+                color: '#EEEEEE'
                 // display: 'flex',
                 // flexDirection: 'column',
                 // flexWrap: 'wrap',
