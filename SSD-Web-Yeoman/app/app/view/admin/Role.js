@@ -24,7 +24,7 @@ Ext.define("SSD_Web.view.admin.Role",{
             padding: 0,
             style: {
                 backgroundColor: 'silver',
-                position: 'relative'
+                position: 'relative',
                 // display: 'flex',
                 // flexDirection: 'column',
                 // flexWrap: 'wrap',
@@ -83,6 +83,34 @@ Ext.define("SSD_Web.view.admin.Role",{
               // call super
               Ext.view.View.prototype.initComponent.call(this);
             },
+            listeners: {
+              boxready: function(){
+                // debugger;
+                var me = this;
+                var padding_value = 130;
+                var wrap_value = parseInt(me.el.getHeight() / padding_value);
+
+                me.tpl = new Ext.XTemplate(
+                '<tpl for=".">',
+                  '<div style="margin: 25px; width: 75px; height: 75px; left: {[this.left(xindex)]}px; top: {[this.top(xindex)]}px; position: absolute;" class="thumb-wrap">',
+                      '<img src="{src}" style="width: 100%; height: 100%;" />',
+                      '<br/><span>{caption}{#}{[xindex]}</span>',
+                    '</div>',
+                '</tpl>', {
+                  left: function(index){
+                    index--;
+                    var val = parseInt(index / wrap_value) * padding_value;
+                    console.log(val);
+                    return val;
+                  },
+                  top: function(index){
+                    index--;
+                    var val = (index  % wrap_value) * padding_value;
+                    return val;
+                  }
+                });
+              }
+            }
        },
        {
             region: 'south',
